@@ -15,5 +15,5 @@ public class AnnalynsInfiltration {
       
         return !archerIsAwake && prisonerIsAwake;     
           
-      }
+    }
 }

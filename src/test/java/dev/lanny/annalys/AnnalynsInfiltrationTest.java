@@ -127,4 +127,99 @@ public class AnnalynsInfiltrationTest {
         assertFalse(AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake));
     }
 
+    @Test
+    @DisplayName("Validamos que todos estan dormidos, sin perro, no se puede liberar")
+    void testCanFreePrisoner_AllAsleep_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(false, false, false, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que todos estan dormidos, con perro, se puede liberar")
+    void testCanFreePrisoner_AllAsleep_WithDog() {
+        assertTrue(AnnalynsInfiltration.canFreePrisoner(false, false, false, true));
+    }
+
+    @Test
+    @DisplayName("VAlidamos que el prisionero esta despierto, guardias dormidos, sin perro, se puede liberar")
+    void testCanFreePrisoner_PrisonerAwake_GuardsAsleep_NoDog() {
+        assertTrue(AnnalynsInfiltration.canFreePrisoner(false, false, true, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que el prisionero esta despierto, guardias dormidos, con perro,se puede liberar")
+    void testCanFreePrisoner_PrisonerAwake_GuardsAsleep_WithDog() {
+        assertTrue(AnnalynsInfiltration.canFreePrisoner(false, false, true, true));
+    }
+
+    @Test
+    @DisplayName("Validamos que el arquero despierto, sin perro, no se puede liberar")
+    void testCanFreePrisoner_ArcherAwake_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(false, true, false, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que el  arquero esta despierto, con perro,no se puede liberar")
+    void testCanFreePrisoner_ArcherAwake_WithDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(false, true, false, true));
+    }
+
+    @Test
+    @DisplayName("Validamos que el arquero esta despierto, prisionero despierto, sin perro, no se puede liberar")
+    void testCanFreePrisoner_ArcherAwake_PrisonerAwake_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(false, true, true, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que el arquero esta despierto, prisionero despierto, con perro, no se puede liberar")
+    void testCanFreePrisoner_ArcherAwake_PrisonerAwake_WithDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(false, true, true, true));
+    }
+
+    @Test
+    @DisplayName("Validamos que el caballero esta despierto, sin perro, no se puede liberar")
+    void testCanFreePrisoner_KnightAwake_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(true, false, false, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que el caballero esta despierto, con perro, se puede liberar")
+    void testCanFreePrisoner_KnightAwake_WithDog() {
+        assertTrue(AnnalynsInfiltration.canFreePrisoner(true, false, false, true));
+    }
+
+    @Test
+    @DisplayName("Validamos que el caballero esta  despierto, prisionero despierto, sin perro, no se puede liberar")
+    void testCanFreePrisoner_KnightAwake_PrisonerAwake_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(true, false, true, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que el caballero esta despierto, prisionero despierto, con perro, se puede liberar")
+    void testCanFreePrisoner_KnightAwake_PrisonerAwake_WithDog() {
+        assertTrue(AnnalynsInfiltration.canFreePrisoner(true, false, true, true));
+    }
+
+    @Test
+    @DisplayName("Validamos que ambos guardias estan despiertos, sin perro, no se puede liberar")
+    void testCanFreePrisoner_BothGuardsAwake_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(true, true, false, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que ambos guardias estan despiertos, con perro, no se puede liberar")
+    void testCanFreePrisoner_BothGuardsAwake_WithDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(true, true, false, true));
+    }
+
+    @Test
+    @DisplayName("Validamos que ambos guardias despiertos, prisionero despierto, sin perro, no se puede liberar")
+    void testCanFreePrisoner_BothGuardsAwake_PrisonerAwake_NoDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(true, true, true, false));
+    }
+
+    @Test
+    @DisplayName("Validamos que ambos guardias despiertos, prisionero despierto, con perro, no se puede liberar")
+    void testCanFreePrisoner_BothGuardsAwake_PrisonerAwake_WithDog() {
+        assertFalse(AnnalynsInfiltration.canFreePrisoner(true, true, true, true));
+    }
 }

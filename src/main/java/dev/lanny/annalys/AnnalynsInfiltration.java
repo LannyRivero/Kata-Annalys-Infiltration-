@@ -16,4 +16,14 @@ public class AnnalynsInfiltration {
         return !archerIsAwake && prisonerIsAwake;     
           
     }
+    
+    public static boolean canFreePrisoner(boolean knightIsAwake, boolean archerIsAwake, boolean prisonerIsAwake, boolean petDogIsPresent) {
+       
+        if (petDogIsPresent) {
+            return !archerIsAwake;
+        }
+        boolean guardsAreAsleep = !knightIsAwake && !archerIsAwake;
+        return prisonerIsAwake && guardsAreAsleep;
+    }
+
 }

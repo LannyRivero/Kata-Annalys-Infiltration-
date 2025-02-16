@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-public class AnnalysInfiltrationTest {
+public class AnnalynsInfiltrationTest {
     @Test
     @DisplayName("Validamos que el caballero esta despierto y no se puede atacar")
     void testCantFastAttack_KnightIsAwake() {

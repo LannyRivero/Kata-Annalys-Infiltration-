@@ -22,4 +22,73 @@ public class AnnalynsInfiltrationTest {
         assertTrue(AnnalynsInfiltration.canFastAttack(knightIsAwake));
     }
 
+    @Test
+    @DisplayName("Validamos que todos los personajes estan dorminos, devuelve false")
+    void testCanSpy_WhenAllAreSleep() {
+        boolean knightIsAwake = false;
+        boolean archerIsAwake = false;
+        boolean prisonerIsAwake = false;
+        assertFalse(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+    @Test
+    @DisplayName("Validamos que solo el caballero esta despierto, devuelve true")
+    void testCanSpy_WhenOnlyKnightIsAwake()  {
+        boolean knightIsAwake = true;
+        boolean archerIsAwake = false;
+        boolean prisonerIsAwake = false;
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+    @Test
+    @DisplayName("Validamos que solo el arquero esta despierto, devuelve true")
+    void testCanSpy_WhenOnlyArcherIsAwake()  {
+        boolean knightIsAwake = false;
+        boolean archerIsAwake = true;
+        boolean prisonerIsAwake = false;
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+    @Test
+    @DisplayName("Validamos que solo el prisionero esta despierto, devuelve true")
+    void testCanSpy_WhenOnlyPrisonerIsAwake()  {
+        boolean knightIsAwake = false;
+        boolean archerIsAwake = false;
+        boolean prisonerIsAwake = true;
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+    @Test
+    @DisplayName("Validamos que todos estan despierto, devuelve true")
+    void testCanSpy_WhenOnlyAllIsAwake()  {
+        boolean knightIsAwake = true;
+        boolean archerIsAwake = true;
+        boolean prisonerIsAwake = true;
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+    @Test
+    @DisplayName("Validamos que el caballero y el arquero estan despierto, devuelve true")
+    void testCanSpy_When_KnightAndArcher_IsAwake()  {
+        boolean knightIsAwake = true;
+        boolean archerIsAwake = true;
+        boolean prisonerIsAwake = false;
+
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+
+    @Test
+    @DisplayName("Validamos que el caballero y el prisionero estan despierto, devuelve true")
+    void testCanSpy_When_KnightAndPrisoner_IsAwake()  {
+        boolean knightIsAwake = true;
+        boolean archerIsAwake = false;
+        boolean prisonerIsAwake = true;
+
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+
+    @Test
+    @DisplayName("Validamos que el caballero y el arquero estan despierto, devuelve true")
+    void testCanSpy_When_ArcherAndPrisoner_IsAwake()  {
+        boolean knightIsAwake = false;
+        boolean archerIsAwake = true;
+        boolean prisonerIsAwake = true;
+        assertTrue(AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
+    }
+
 }

@@ -10,4 +10,10 @@ public class AnnalynsInfiltration {
         return knightIsAwake || archerIsAwake || prisonerIsAwake;
        
     }
+
+    public static boolean canSignalPrisoner(boolean archerIsAwake, boolean prisonerIsAwake) {
+      
+        return !archerIsAwake && prisonerIsAwake;     
+          
+      }
 }
